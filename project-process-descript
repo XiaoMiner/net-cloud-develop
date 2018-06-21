@@ -1,0 +1,38 @@
+# vue-project项目进度说明
+
+  > 其他两个文件
+    + project-attention-point-description 该文件主要是在开发过程的一些注意的点说明文件
+    + project-demand-description 该文件主要是在开发过程中用到的功能点说明文件。
+
+  ## 安装全局的vue-cli
+
+     + npm install vue-cli –g
+
+  ## 项目目录创建
+
+     + vue init webpack 项目名称 (版本为2.x)
+       + 目录结构说明url: https://blog.csdn.net/weixin_36185028/article/details/78637528
+     + npm install
+       + 安装项目所需的依赖
+
+  ## 项目开发的功能添加的步骤
+    ### header部分
+      + logo部分
+      + 列表部分
+         + 路由设置
+      + 搜索部分
+      + 视频投稿部分
+      + 头像部分
+
+    #### 列表部分-路由设置
+      + router.js
+        + 路由的嵌套
+        + 路由的重定向
+
+  ## 启动项目
+
+     + npm start
+
+  ## 编译项目
+
+     + npm run build

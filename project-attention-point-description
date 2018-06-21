@@ -1,0 +1,128 @@
+#  vue-project项目
+
+  ## 以原生的vue单页面应用 -> 类比到vue-cli搭建的项目中.
+    - main.js -> new Vue() 模板入口。
+    - App.vue -> 根组件-根实例 <div id="app">...</div>
+      - APP.vue -> <router-link></router-link> -> <router-view/>
+    - router/index.js 在main.js引入路由配置的时候, import router from './router' 即可. index.js被自动匹配到。
+    - router/index.js  path为'/'的路径对应的组件模板 会自动输出到根实例App.vue的模板router-view上。而不用使用router-link。
+      (原因:在我登录网站时,地址自动访问: http: xxx.xxx.xxx/#/)
+    - 把组件放到App.vue模板中。
+
+  ## vue问题
+    + vue中字符串使用单引号处理: '' (******)
+    + 组件的export default {name: ''}的name属性的值是应用到路由中的name属性中的。
+    + 在NetCloudMusicIndex.vue中使用组件时
+       例: import IndexHeader from './IndexComponents/IndexHeader'
+           <template> <IndexHeader/> </template>
+    + 在.vue文件中必须要设置一个根元素,否则会报错
+       >  <template> <div> <IndexHeader/> <IndexContent/> </div> </template>
+          div元素作为<IndexHeader/> <IndexContent/>的根元素。
+
+    [+ 在vue中注册了esLint的插件以后会有严格的书写模式。
+    + 注释的缩进 /* 缩进一个space */
+    + 字符后的缩进 例:(: =>冒号的缩进 ,=>逗号的缩进)
+    + 函数 function fn () {} 要写成这样的格式
+    + 语句 if () {} 写成这样的格式]
+
+    + 条件判断 if (object.a === '1') {} 使用 === 判断, 不能使用 == 判断
+
+    + 问题:
+    `
+    当我从[发现音乐]切换到[下载客户端]界面时,
+    computed:{getValue(){return this.$store.state.DLS_pageEnter}}
+    watch: {
+        getPageEnter(newValue, oldValue){
+          // console.log(newValue)
+          if(newValue){
+            console.log(this.$refs.viewWrapImg);// JSDOM
+            $(this.$refs.viewWrapImg).css({
+              transform: 'translate(812px, 0)',
+              transition: 'transform 1s ease'
+            })
+            this.$store.commit('updateDownloadLoadStatus', 0)
+            }
+          }
+        }
+     状态this.$store.state.DLS_pageEnter变化,但是没有触发getPageEnter呢?
+     问题分析: 虽然this.$store.state.DLS_pageEnter状态改变了,但是[下载客户端]界面还没有被加载导致无法触发getPageEnter。
+    `
+    + 问题:
+    `
+    <div>
+    <my-component></my-component>
+    </div>
+    => 组件的调用
+
+    <router-link to="myComponent"></router-link>
+    <router-view/> =>路由组件输出
+
+    这两种对于组件加载方式是不一样的:
+    组件的调用: 父子组件会都加载完成。
+    路由组件输出: 触发路由以后才会加载对应的组件。
+    `
+
+  # vue的知识用法
+    + 给router-link设置点击事件时,需要添加修饰符.native。
+          + <router-link to="" @click.native=""></router-link>
+    + computed
+      + 计算属性 可以监听到数据的变化
+      `computed: {getValue(){return this.$store.state.pageEnter}}`监听到store仓库中的pageEnter变化,从而改变getValue的值。
+      `watch: {getValue(newValue, oldValue){}} `watch中监听到getValue值的变化。
+    + ref 模板变量的使用
+      + ref 与 v-for 组合使用时,才会返回一个数组, 相反,只会获取到左后一个带有ref属性的元素。
+      + ref可以获取到子组件实例, 其他情况下获取不到
+
+  ## css
+    + 在static文件夹中添加base.css文件, 为项目设置基本样式。
+      > base.css 引入到index.html中就可以全局使用。
+    + 给浏览器设置统一字体:
+      + #app {font-size: 14px; font-family:'Avenir', Helvetica, Arial, sans-serif}
+        这里放在了#app中,html可能会有其他的作用.(通常是设置到html中的)
+    + transition和transform属性
+      > 在transition中应用transform属性
+      div {
+        transition: transform 1s ease;
+        transform: translate(x, y)
+      }
+    + transform 结合 近远景属性perspective、transform-style: 3d;实现3d视觉效果。
+    // css
+     .father-ele  {
+      perspective: 1200;
+      transform-style: preserve-3d
+     }
+     .son-ele {
+      transform: translateZ(x, y);
+     }
+     // html
+     <div class="father-ele">
+        <div class="son-ele">
+        </div>
+     <div>
+
+  ## 组件结构说明
+    > 组件应用涉及到三大部分: 引入组件 调用组件 注册到父实例中。
+    > 路由的应用: router-link 引入组件 配置路由 router-view。
+    + NetCloudMusicIndex.vue是根组件
+         > 当组件含有路由链接("/findMusic"、"/myMusic"、"/friend"、"/downloadClient")
+         + /IndexComponents/IndexHeader.vue
+         > IndexHeader中链接对应的组件。(IndexContentFindMusic、IndexContentMyMusic、IndexContentFriend、IndexContentDownloadClient)
+         (   > IndexContentFindMusic组件中含有链接(  "/recommend"、"/rankingList"、"/songSheet"、"/anchorsPlatform"、"/singer"、"/newPlate")
+         + /IndexComponents/indexContent/IndexContentFindMusic.vue
+                      + /FindMusic/
+                        + FindMusicRecommend.vue
+                        + FindMusicRankingList.vue
+                        + FindMusicSongSheet.vue
+                        + FindMusicAnchorsPlatform.vue
+                        + FindMusicSinger.vue
+                        + FindMusicNewPlate.vue
+         > FindMusic.vue是IndexContentFindMusic中链接的输出位置。
+         + FindMusic.vue)
+         + /IndexComponents/indexContent/IndexContentMyMusic.vue
+         + /IndexComponents/indexContent/IndexContentFriend.vue
+         + /IndexComponents/indexContent/IndexContentDownloadClient.vue
+         > IndexContent.vue组件是IndexHeader中链接到的组件输出位置
+         + /IndexComponents/IndexContent.vue
+
+
+

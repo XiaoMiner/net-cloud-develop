@@ -1,0 +1,109 @@
+# 表单验证
+  > 使用vee-validate配合vue进行表单验证。
+
+ + npm install vee-validate@2.0.0-rc.25 --save
+   > question: 要使用2.0.0版本, 不然无法使用Validator模块中addLocale()方法。
+   > 把npm版本降为了@4.6.0
+  + import VeeValidate, {Validator} from 'vee-validate'
+    import CN from 'vee-validate/dist/locale/zh_CN'
+    Validator.addLocale(CN) // 文件
+    const config = {
+      errorBagName: 'errors', // change if property conflicts.
+      fieldsBagName: 'fields',
+      delay: 0,
+      locale: 'zh_CN',
+      strict: true,
+      enableAutoClasses: false,
+      classNames: {
+        touched: 'touched', // the control has been blurred
+        untouched: 'untouched', // the control hasn't been blurred
+        valid: 'valid', // model is valid
+        invalid: 'invalid', // model is invalid
+        pristine: 'pristine', // control has not been interacted with
+        dirty: 'dirty' // control has been interacted with
+      },
+      events: 'blur',
+      inject: true
+    };
+    Validate.use(VeeValidate,config);
+
+   + 自定义错误提示信息
+      + const dictionary = {
+         zh_CN: {
+           messages: {
+             email: () => '邮箱格式不正确呦'
+           }
+         }
+       }
+
+      Validator.updateDictionary(dictionary)
+
+      + const dictionary = {
+          zh_CN: {
+            messages: {
+              required: (filed) => '请输入您的'+filed
+            }
+          },
+          attribute: {
+            email: '邮箱',
+            qq: 'qq账号'
+          }
+      }
+      Validator.updateDictionary(dictionary)
+
+   + 自定义校验规则
+      Validator.extend('qq', {
+        messages: {
+          zh_CN: filed => '请输入有效的qq号码'
+        },
+        validate: value =>{
+          return /^[1-9][0-9]{4,8}$/.test(value)
+        }
+      })
+
+# sass编译
+  + 使用sass作为样式的预编译工具。
+    npm install node-sass sass-loader --save-dev
+
+# vue轮播图
+  + npm install vue-awesome-swiper --save
+  + swiper 版本 4.0 书写形式。
+   /* pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+              },
+              navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+              }
+   */
+
+# vue各个文件引入。
+  + main.js =>入口 全局使用
+  + 指定文件 => 内部使用
+  + index.html => 全局使用。
+
+# 回到顶部
+  + vuex
+  + 自定义指令directive
+# vuex的应用
+  + 状态使用
+
+# 逻辑处理
+  + 刷新页面
+  + 不同角度进入
+# webpack
+  + 配置jquery到webpack中,在vue中全局引用jquery
+  `
+  1.npm install jquery => 这里涉及到jquery的版本, 最新的版本配置到webpack中不生效
+  2. webpack.base.conf.js中配置
+     + const webpack = require('webpack')
+     + plugins: [
+           new webpack.optimize.CommonsChunkPlugin('common.js'),
+           new webpack.ProvidePlugin({
+             $: 'jquery',
+             jQuery: 'jquery'
+           })
+         ]
+  3. 在main.js中 import $ from 'jquery';
+  `
