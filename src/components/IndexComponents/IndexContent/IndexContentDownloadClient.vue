@@ -84,7 +84,7 @@
           <img src="./../../../assets/images/b2.jpg" class="three-view-wrap-img" alt="图片">
           <div class="three-view-wrap-text">
             <h3 class="tvwt-h3">千位明星 亲自推荐音乐</h3>
-            <p class="tvwt-p">陶喆，羽泉等千位明星已入驻，亲自创建私房歌单，录制独家DJ节目，推荐他们心中的好音乐</p>
+            <p class="tvwt-p" ref="tvwtP">陶喆，羽泉等千位明星已入驻，亲自创建私房歌单，录制独家DJ节目，推荐他们心中的好音乐</p>
           </div>
         </div>
       </div>
@@ -169,9 +169,6 @@ export default {
     setTimeout(function(){
       _this.getPageEnter = pageEnterStatus;
     }, 600)
-    $(_this.$refs.input).on('change', function(event){
-      console.log(event)
-    })
     _this.pageScrollBar();
   },
   components: {
@@ -182,8 +179,8 @@ export default {
       let _this = this;
       window.addEventListener('scroll', function(){
         let scrollTop = document.documentElement.scrollTop;
-        // console.log(scrollTop)
-        if(scrollTop > 100 || scrollTop == 100 ){
+        console.log(scrollTop)
+        if(scrollTop < 500 && scrollTop > 100 || scrollTop == 100 ){
           $(_this.$refs.svwtH).css({
             transition: 'all 1s ease',
             transform: 'rotateY(0deg) translateZ(0px) translateX(0px)',
@@ -195,6 +192,12 @@ export default {
           })
           $(_this.$refs.svwtP).css({
             transition: 'opacity 2s ease 1s',
+            opacity: 1
+          })
+        }else if(scrollTop > 500 || scrollTop == 500){
+          $(_this.$refs.tvwtP).css({
+            transition: 'all 1s ease',
+            transform: 'translateY(0px)',
             opacity: 1
           })
         }
@@ -377,6 +380,8 @@ export default {
     line-height: 24px;
     color: #666;
     width: 420px;
+    transform: translateY(147px);
+    opacity: 0;
   }
 
   #download-client .download-four-view {
