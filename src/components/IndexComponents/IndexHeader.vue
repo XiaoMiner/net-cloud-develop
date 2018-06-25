@@ -112,11 +112,28 @@ export default {
       musician: '音乐人',
       downloadClient: '下载客户端',
       showUserInfo: false,
-      hideUserInfo: true
+      hideUserInfo: true,
+      netCloudNavName: ''
     }
   },
   created(){
 
+  },
+  mounted(){
+    /********************************************/
+    //处理在刷新页面以后导航的默认选中的背景色处理逻辑
+    let routeName = window.location.hash.slice(2);
+    if(routeName == 'recommend'){
+      this.netCloudNavName = '发现音乐'
+    }else if(routeName == 'myMusic'){
+      this.netCloudNavName = '我的音乐'
+    }else if(routeName == 'friend') {
+      this.netCloudNavName = '朋友'
+    }else if(routeName == 'downloadClient'){
+      this.netCloudNavName = '下载客户端'
+    }
+    this.toggleNetCloudNav(this.netCloudNavName);
+    /*********************************************/
   },
   methods: {
     toggleNetCloudNavBgAndArrowHandle (netCloudNavNameFP, booleanArrow, booleanRecovery) {
@@ -163,10 +180,8 @@ export default {
           break
       }
     },
-
     toggleNetCloudNav (netCloudNavName) {
       if (netCloudNavName === '发现音乐') {
-        console.log(this.$store.state.DLS_pageEnter);
         this.toggleNetCloudNavBgAndArrowHandle(netCloudNavName, true, false)
       } else if (netCloudNavName === '我的音乐') {
         this.toggleNetCloudNavBgAndArrowHandle(netCloudNavName, true, false)
@@ -177,17 +192,13 @@ export default {
       } else if (netCloudNavName === '音乐人') {
         this.toggleNetCloudNavBgAndArrowHandle(netCloudNavName, true, false)
       } else if (netCloudNavName === '下载客户端') {
-        this.$store.commit('updateDownloadLoadStatus', 1)
-        sessionStorage.setItem('DLS_pageEnter',this.$store.state.DLS_pageEnter );
         this.toggleNetCloudNavBgAndArrowHandle(netCloudNavName, true, false)
       }
     },
-
     showUserInfoList () {
       this.showUserInfo = true
       this.hideUserInfo = false
     },
-
     hideUserInfoList () {
       this.showUserInfo = false
       this.hideUserInfo = true

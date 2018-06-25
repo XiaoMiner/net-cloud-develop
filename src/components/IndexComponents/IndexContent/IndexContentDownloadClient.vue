@@ -182,8 +182,6 @@ export default {
   name: 'IndexContentDownloadClient',
   data(){
     return {
-      store,
-      getPageEnter: ''
     }
   },
   created(){
@@ -191,16 +189,28 @@ export default {
   },
   mounted(){
     var _this = this;
-    let pageEnterStatus = sessionStorage.getItem('DLS_pageEnter');
+    // 设置延时器的目的是: dom元素全部加载完毕以后的进行逻辑处理。
+    // 存在的问题: 网络如果不好,dom加载缓慢目前没有处理方案。
     setTimeout(function(){
-      _this.getPageEnter = pageEnterStatus;
+      _this.firstView();
     }, 600)
+
     _this.pageScrollBar();
   },
   components: {
     NetCloudMusicFooter
   },
   methods: {
+    firstView(){
+      $(this.$refs.viewWrapImg).css({
+        transform: 'translate(812px, 0)',
+        transition: 'transform 1s ease'
+      })
+      $(this.$refs.versionShow).css({
+        transform: 'translate(-638px, 0)',
+        transition: 'transform 1s ease'
+      });
+    },
     pageScrollBar() {
       let _this = this;
       window.addEventListener('scroll', function(){
@@ -329,22 +339,6 @@ export default {
 
   },
   watch: {
-    getPageEnter(newValue, oldValue){
-      // console.log(newValue)
-      if(newValue){
-        // console.log(this.$refs.viewWrapImg);// JSDOM
-        // console.log(this.$refs.versionShow)
-          $(this.$refs.viewWrapImg).css({
-            transform: 'translate(812px, 0)',
-            transition: 'transform 1s ease'
-          })
-          $(this.$refs.versionShow).css({
-            transform: 'translate(-638px, 0)',
-            transition: 'transform 1s ease'
-          });
-        this.$store.commit('updateDownloadLoadStatus', 0)
-        }
-      }
     }
   }
 </script>
