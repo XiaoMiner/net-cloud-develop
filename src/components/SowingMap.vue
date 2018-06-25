@@ -65,7 +65,7 @@ export default {
         'http://p1.music.126.net/7fWvW9z07M9N1tRD3a2Dnw==/109951163366128323.jpg',
         'http://p1.music.126.net/WI6uvx7RvI_M7gbJQxdPHw==/109951163364579228.jpg',
         'http://p1.music.126.net/us8Gtfd0cxB0m4Kk6BQHZQ==/109951163364859245.jpg',
-        'http://p1.music.126.net/BzMf8MJSc4lY-lBD0pN43w==/109951163326632290.jpg'
+        'https://p1.music.126.net/QfbY_I7RojXCZ3ycFaXUSQ==/109951163369762973.jpg'
       ]
     }
   },

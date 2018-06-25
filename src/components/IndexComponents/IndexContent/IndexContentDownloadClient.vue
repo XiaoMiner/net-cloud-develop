@@ -84,6 +84,8 @@
           <img src="./../../../assets/images/b2.jpg" class="three-view-wrap-img" alt="图片">
           <div class="three-view-wrap-text">
             <h3 class="tvwt-h3">千位明星 亲自推荐音乐</h3>
+            <span class="tvwt-mask-one" ref="tmo"></span>
+            <span class="tvwt-mask-two" ref="tmt"></span>
             <p class="tvwt-p" ref="tvwtP">陶喆，羽泉等千位明星已入驻，亲自创建私房歌单，录制独家DJ节目，推荐他们心中的好音乐</p>
           </div>
         </div>
@@ -95,11 +97,24 @@
             <p class="fvwt-p">你可以关注明星、DJ和好友，通过浏览他们的动态、收藏和分享，发现更多全新好音乐</p>
           </div>
           <img class="four-view-wrap-img" src="./../../../assets/images/b3.jpg" alt="图片">
+          <span class="fvw-span-one" ref="fso"></span>
+          <span class="fvw-span-two" ref="fst"></span>
+          <span class="fvw-span-three" ref="fstt"></span>
+          <span class="fvw-span-four" ref="fsf"></span>
+          <span class="fvw-span-five" ref="fsff"></span>
         </div>
       </div>
       <div class="download-five-view">
         <div class="five-view-wrap clearFix">
-          <img src="./../../../assets/images/b4.jpg" class="five-view-wrap-img" alt="图片">
+          <div class="five-view-wrap-img">
+              <i class="fvwi-one" ref="fvwio"></i>
+              <i class="fvwi-two" ref="fvwit"></i>
+              <i class="fvwi-three" ref="fvwitt"></i>
+              <i class="fvwi-four" ref="fvwif"></i>
+              <i class="fvwi-five" ref="fvwiff"></i>
+              <i class="fvwi-six" ref="fvwis"></i>
+              <i class="fvwi-seven" ref="fvwiss"></i>
+          </div>
           <div class="five-view-wrap-text">
             <h3 class="ffvwt-h3">手机电脑 歌单实时同步</h3>
             <p class="ffvwt-p">只要一个帐号，你就可以同步在手机、电脑上创建、收藏的歌单，随时随地畅享好音乐</p>
@@ -108,7 +123,16 @@
       </div>
       <div class="download-six-view">
         <div class="six-view-wrap clearFix">
-          <img class="six-view-wrap-img" src="./../../../assets/images/b5.jpg" alt="图片">
+          <!--<img class="six-view-wrap-img" src="./../../../assets/images/b5.jpg" alt="图片">-->
+          <div class="six-view-wrap-img">
+            <div class="svwi-symbol">
+              <i class="svwi-symbol-one" ref="sso"></i>
+              <i class="svwi-symbol-two" ref="sst"></i>
+              <i class="svwi-symbol-three" ref="sstt"></i>
+            </div>
+            <i class="svwi-member" ref="svwiM"></i>
+            <i class="svwi-iphone" ref="svwiI"></i>
+          </div>
           <div class="six-view-wrap-text">
             <h3 class="sixvwt-h3">手机电脑 歌单实时同步</h3>
             <p class="sixvwt-p">只要一个帐号，你就可以同步在手机、电脑上创建、收藏的歌单，随时随地畅享好音乐</p>
@@ -182,24 +206,119 @@ export default {
       window.addEventListener('scroll', function(){
         let scrollTop = document.documentElement.scrollTop;
         console.log(scrollTop)
-        if(scrollTop < 500 && scrollTop > 100 || scrollTop == 100 ){
+        if(scrollTop < 545 && scrollTop > 100 || scrollTop == 100 ){
           $(_this.$refs.svwtH).css({
-            transition: 'all 1s ease',
+            transition: 'all 1s ease 0.3s',
             transform: 'rotateY(0deg) translateZ(0px) translateX(0px)',
             opacity: 1
           })
-          $(_this.$refs.svwImg).css({
-            transition: 'transform 1s ease',
-            transform: 'rotateX(0deg)'
-          })
           $(_this.$refs.svwtP).css({
-            transition: 'opacity 2s ease 1s',
+            transition: 'opacity 2s ease 1.3s',
             opacity: 1
           })
-        }else if(scrollTop > 500 || scrollTop == 500){
+        }else if( scrollTop < 920 && scrollTop > 545 || scrollTop == 545){
+          $(_this.$refs.tmo).css({
+            transition: 'opacity 1s ease 0.3s',
+            opacity: 0
+          });
+          $(_this.$refs.tmt).css({
+            transition: 'opacity 1s ease 1.3s',
+            opacity: 0
+          });
           $(_this.$refs.tvwtP).css({
-            transition: 'all 1s ease',
+            transition: 'all 1s ease 2.3s',
             transform: 'translateY(0px)',
+            opacity: 1
+          })
+        }else if(scrollTop < 1350 && scrollTop > 920 || scrollTop == 920){
+            $(_this.$refs.fst).css({
+              transition: 'opacity 1.3s ease 0.5s',
+              opacity: 0
+            })
+            $(_this.$refs.fso).css({
+              transition: 'opacity 1.3s ease 1.2s',
+              opacity: 0
+            })
+          $(_this.$refs.fstt).css({
+            transition: 'opacity 1.3s ease 1.9s',
+            opacity: 0
+          })
+          $(_this.$refs.fsf).css({
+            transition: 'opacity 1.5s ease 2.6s',
+            opacity: 0
+          })
+          $(_this.$refs.fsff).css({
+            transition: 'opacity 1.5s ease 3.3s',
+            opacity: 0
+          })
+        } else if(scrollTop == 1350 || scrollTop > 1350 && scrollTop < 1970){
+          $(_this.$refs.fvwio).css({
+              transition: 'all 1.3s ease 0.5s',
+              transform: 'translateY(98px)',
+              opacity: 1
+            })
+          $(_this.$refs.fvwit).css({
+            transition: 'all 1.3s ease 0.5s',
+            transform: 'translateY(95px)',
+            opacity: 1
+          })
+          $(_this.$refs.fvwitt).css({
+            transition: 'all 1.3s ease 1.8s',
+            transform: 'translateX(-112px) translateY(61px)',
+            width: '28px',
+            height: '44px',
+            opacity: 1,
+          })
+          $(_this.$refs.fvwif).css({
+            transition: 'all 1.3s ease 1.8s',
+            transform: 'translateX(103px) translateY(72px)',
+            width: '29px',
+            height: '46px',
+            opacity: 1,
+          })
+          $(_this.$refs.fvwiff).css({
+            transition: 'all 1.3s ease 3.1s',
+            transform: 'translateX(-26px) translateY(95px)',
+            width: '36px',
+            height: '46px',
+            opacity: 1,
+          })
+          $(_this.$refs.fvwis).css({
+            transition: 'all 1.3s ease 3.1s',
+            transform: 'translateX(40px) translateY(92px)',
+            width: '27px',
+            height: '46px',
+            opacity: 1,
+          })
+          $(_this.$refs.fvwiss).css({
+            transition: 'all 1.3s ease 4.4s',
+            transform: 'translateY(-150px)',
+            opacity: 1,
+          })
+        } else if(scrollTop == 1970 || scrollTop > 1970 && scrollTop < 2225) {
+          $(_this.$refs.svwiI).css({
+            transition: 'all 2s ease',
+            transform: 'translateX(-375px)',
+            opacity: 1
+          })
+          $(_this.$refs.svwiM).css({
+            transition: 'all 2s ease',
+            transform: 'translateY(-175px) translateX(340px) rotate(360deg)',
+            opacity: 1
+          })
+          $(_this.$refs.sstt).css({
+            transition: 'all 1s ease 2s',
+            // transform: 'translateX(-23px) translateY(-26px)',
+            opacity: 1
+          })
+          $(_this.$refs.sst).css({
+            transition: 'all 1s ease 3s',
+            // transform: 'translateX(-72px) translateY(-21px)',
+            opacity: 1
+          })
+          $(_this.$refs.sso).css({
+            transition: 'all 1s ease 4s',
+            // transform: 'translateX(-17px) translateY(-34px)',
             opacity: 1
           })
         }
@@ -316,7 +435,7 @@ export default {
     padding-right: 15px;
   }
   #download-client .download-second-view {
-    height: 438px;
+    height: 483px;
     perspective: 1500px;
     transform-style: preserve-3d;
     perspective-origin: 10% 10%;
@@ -348,11 +467,10 @@ export default {
   .second-view-wrap .second-view-wrap-img {
     float: right;
     margin-right: 47px;
-    transform: rotateX(60deg);
   }
 
   #download-client .download-three-view {
-    height: 436px;
+    height: 483px;
     background: #f8f8f8;
     border-bottom: 1px solid #d3d3d3;
     border-top: 1px solid #d3d3d3;
@@ -371,11 +489,31 @@ export default {
   .three-view-wrap .three-view-wrap-text {
     float: right;
     margin-right: 47px;
+    position: relative;
   }
   .three-view-wrap-text .tvwt-h3 {
     font-size: 40px;
     font-weight: normal;
     padding: 45px 0 5px 0;
+  }
+  .three-view-wrap-text .tvwt-mask-one {
+    display: block;
+    width: 160px;
+    height: 48px;
+    position: absolute;
+    top: 48px;
+    background: #f8f8f8;
+    opacity: 1;
+  }
+  .three-view-wrap-text .tvwt-mask-two {
+    display: block;
+    width: 256px;
+    height: 48px;
+    position: absolute;
+    background: #f8f8f8;
+    top: 48px;
+    left: 170px;
+    opacity: 1;
   }
   .three-view-wrap-text .tvwt-p {
     font-size: 16px;
@@ -387,13 +525,14 @@ export default {
   }
 
   #download-client .download-four-view {
-    height: 438px;
+    height: 483px;
     /*background: red;*/
   }
   .download-four-view .four-view-wrap {
     width: 982px;
     margin: 0 auto;
     padding-top: 72px;
+    position: relative;
   }
   .four-view-wrap .four-view-wrap-text {
     float: left;
@@ -413,9 +552,65 @@ export default {
     float: right;
     margin-right: 47px;
   }
+  .four-view-wrap .fvw-span-one {
+    display: block;
+    width: 79px;
+    height: 79px;
+    position: absolute;
+    right: 409px;
+    top: 110px;
+    border-radius: 50% 50%;
+    /*filter: blur(10px);*/
+    background: #EC2424;
+  }
+
+  .four-view-wrap .fvw-span-two {
+    display: block;
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    right: 256px;
+    top: 80px;
+    border-radius: 50% 50%;
+    background: #EC2424;
+  }
+
+  .four-view-wrap .fvw-span-three {
+    display: block;
+    width: 81px;
+    height: 81px;
+    position: absolute;
+    right: 63px;
+    top: 121px;
+    border-radius: 50% 50%;
+    background: #EC2424;
+    /*background: skyblue;*/
+  }
+  .four-view-wrap .fvw-span-four{
+    display: block;
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    right: 127px;
+    top: 230px;
+    border-radius: 50% 50%;
+    background: #EC2424;
+    /*background: skyblue;*/
+  }
+  .four-view-wrap .fvw-span-five{
+    display: block;
+    width: 96px;
+    height: 96px;
+    position: absolute;
+    right: 258px;
+    top: 207px;
+    border-radius: 50% 50%;
+    background: #EC2424;
+    /*background: skyblue;*/
+  }
 
   #download-client .download-five-view {
-    height: 436px;
+    height: 483px;
     background: #f8f8f8;
     border-bottom: 1px solid #d3d3d3;
     border-top: 1px solid #d3d3d3;
@@ -426,7 +621,109 @@ export default {
     padding-top: 95px;
   }
   .five-view-wrap .five-view-wrap-img{
+    width: 434px;
+    height: 246px;
+    /*background: skyblue;*/
     float: left;
+    position: relative;
+  }
+  .five-view-wrap-img .fvwi-one {
+    display: block;
+    width: 48px;
+    height: 37px;
+    background: url('./../../../assets/images/b4.jpg') -133px -3px no-repeat;
+    position: absolute;
+    top: -95px;
+    left: 133px;
+    opacity: 0;
+    z-index: 10;
+  }
+  .five-view-wrap-img .fvwi-two {
+    display: block;
+    width: 43px;
+    height: 38px;
+    background: url('./../../../assets/images/b4.jpg') -258px 0px no-repeat;
+    position: absolute;
+    left: 258px;
+    top: -95px;
+    opacity: 0;
+    z-index: 10;
+  }
+
+  .five-view-wrap-img .fvwi-three {
+    display: block;
+    /*width: 28px;
+    height: 44px;*/
+    width: 0px;
+    height: 0px;
+    background: url('./../../../assets/images/b4.jpg') -30px -61px no-repeat;
+    position: absolute;
+    /*142 0*/
+    /*left: 30px;
+    top: 61px;*/
+    left: 142px;
+    top: 0;
+    z-index: 9;
+  }
+  .five-view-wrap-img .fvwi-four {
+    display: block;
+    /*width: 29px;
+    height: 46px;*/
+    width: 0px;
+    height: 0px;
+    background: url('./../../../assets/images/b4.jpg') -368px -66px no-repeat;
+    position: absolute;
+    /*265 -6*/
+    /*left: 368px;
+    top: 66px;*/
+    left: 265px;
+    top: -6px;
+    opacity: 0;
+    z-index: 9;
+  }
+  .five-view-wrap-img .fvwi-five {
+    display: block;
+    /*width: 36px;
+    height: 46px;*/
+    width: 0px;
+    height: 0px;
+    background: url('./../../../assets/images/b4.jpg') 0px -159px no-repeat;
+    position: absolute;
+    /*26 64*/
+   /* left: 0px;
+    top: 159px;*/
+    left: 26px;
+    top: 64px;
+    z-index: 8
+  }
+  .five-view-wrap-img .fvwi-six {
+    display: block;
+    /*width: 27px;
+    height: 46px;*/
+    width: 0px;
+    height: 0px;
+    background: url('./../../../assets/images/b4.jpg') -407px -160px no-repeat;
+    position: absolute;
+    /*367 68*/
+    /*left: 407px;
+    top: 160px;*/
+    left: 367px;
+    top: 68px;
+    z-index: 8
+  }
+
+  .five-view-wrap-img .fvwi-seven {
+    display: block;
+    width: 248px;
+    height: 169px;
+    background: url('./../../../assets/images/b4.jpg') -90px -70px no-repeat;
+    position: absolute;
+    /*220*/
+    /*left: 90px;
+    top: 70px;*/
+    left: 90px;
+    top: 220px;
+    opacity: 0;
   }
   .five-view-wrap .five-view-wrap-text {
     float: right;
@@ -445,13 +742,15 @@ export default {
   }
 
   #download-client .download-six-view {
-    height: 438px;
+    height: 483px;
     /*background: red;*/
   }
   .download-six-view .six-view-wrap {
     width: 982px;
     margin: 0 auto;
     padding-top: 53px;
+    perspective: 1500px;
+    transform-style: preserve-3d;
   }
   .six-view-wrap .six-view-wrap-text {
     float: left;
@@ -470,9 +769,80 @@ export default {
   }
   .six-view-wrap .six-view-wrap-img {
     float: right;
+    width: 359px;
+    height: 355px;
+    /*background: skyblue;*/
     margin-right: 47px;
+    position: relative;
   }
 
+  .six-view-wrap-img .svwi-iphone {
+    display: block;
+    width: 177px;
+    height: 355px;
+    background: url('./../../../assets/images/b5.jpg') -174px 0 no-repeat;
+    position: absolute;
+    /*right: 10px;*/
+    right: -365px;
+    opacity: 0;
+  }
+
+  .six-view-wrap-img .svwi-symbol {
+    display: block;
+    width: 174px;
+    height: 134px;
+    position: absolute;
+  }
+  .svwi-symbol .svwi-symbol-one {
+    display: block;
+    width: 13px;
+    height: 25px;
+    background: url("./../../../assets/images/b5.jpg") -35px -30px no-repeat;
+    position: absolute;
+    left: 35px;
+    top: 30px;
+    /*left: 52px;
+    top: 64px;*/
+    opacity: 0;
+    z-index: 8;
+  }
+  .svwi-symbol .svwi-symbol-two {
+    display: block;
+    width: 28px;
+    height: 22px;
+    background: url("./../../../assets/images/b5.jpg") -52px -64px no-repeat;
+    position: absolute;
+    /*52 64*/
+    left: 70px;
+    top: 64px;
+    /*left: 140px;
+    top: 85px;*/
+    z-index: 9;
+    opacity: 0;
+  }
+  .svwi-symbol .svwi-symbol-three {
+    display: block;
+    width: 21px;
+    height: 29px;
+    background: url("./../../../assets/images/b5.jpg") -100px -85px no-repeat;
+    position: absolute;
+    left: 124px;
+    top: 85px;
+    /*left: 150px;
+    top: 108px;*/
+    z-index: 10;
+    opacity: 0;
+  }
+  .six-view-wrap-img .svwi-member {
+    display: block;
+    width: 174px;
+    height: 211px;
+    background: url('./../../../assets/images/b5.jpg') 0px -134px no-repeat;
+    position: absolute;
+    bottom: -175px;
+    left: -340px;
+    opacity: 0;
+  }
   #download-client .download-seven-view {
     height: 343px;
     background: #f8f8f8;
