@@ -58,10 +58,10 @@ export default {
         // ...
       },
       sowingImagesData: [
+        'http://p1.music.126.net/vyI6AqN4cNCLnQTathUSng==/109951163370560438.jpg',
         'http://p1.music.126.net/EL2-nhNUSkYoh6wt49fySA==/109951163324733383.jpg',
         'http://p1.music.126.net/J_Bkd7gaTwBvjj36nKdBdg==/109951163347026228.jpg',
         'http://p1.music.126.net/GEslr8WZjFye0cbjeal-7g==/109951163331654308.jpg',
-        'http://p1.music.126.net/ZWx2N5Biqqh5o56mjQQldg==/109951163349095465.jpg',
         'http://p1.music.126.net/7fWvW9z07M9N1tRD3a2Dnw==/109951163366128323.jpg',
         'http://p1.music.126.net/WI6uvx7RvI_M7gbJQxdPHw==/109951163364579228.jpg',
         'http://p1.music.126.net/us8Gtfd0cxB0m4Kk6BQHZQ==/109951163364859245.jpg',
