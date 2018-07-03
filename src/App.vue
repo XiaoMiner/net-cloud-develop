@@ -14,6 +14,6 @@ export default {
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   font-size: 14px;
-  height: 1724px;
+  /*height: 1724px;*/
 }
 </style>

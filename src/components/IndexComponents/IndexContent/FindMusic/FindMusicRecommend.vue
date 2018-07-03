@@ -7,7 +7,7 @@
         <div class="find-music-wrap">
           <SowingMap @sowingPrevAndNext="toggleMusicContentBg"></SowingMap>
           <div class="find-music-download">
-            <a href="javascript;">下载客户端</a>
+            <a href="javascript:void(0);">下载客户端</a>
             <p>PC 安卓 iPhone WP iPad Mac 六大客户端</p>
           </div>
         </div>
@@ -64,14 +64,14 @@
                   <ul>
                     <li>
                       <div class="individualization-img-first">
-                        <span class="individualization-week">{{individualizationRecommendData[0].week}}</span>
-                        <span class="individualization-day">{{individualizationRecommendData[0].day}}</span>
+                        <span class="individualization-week">{{week}}</span>
+                        <span class="individualization-day">{{day}}</span>
                         <span class="day-icon"></span>
                         <a href="javascript: void(0);" class="individualization-img-link pointer"
-                           :title="individualizationRecommendData[0].imgDes"></a>
+                           title="每日歌曲推荐"></a>
                       </div>
-                      <a href="javascript:void (0);" class="individualization-img-des">{{individualizationRecommendData[0].imgDes}}</a>
-                      <p>{{individualizationRecommendData[0].personalTasteDes}}</p>
+                      <a href="javascript:void (0);" class="individualization-img-des">每日歌曲推荐</a>
+                      <p>根据你的口味生成，每天6:00更新</p>
                     </li>
                     <li v-for="(singleInfo, index) in individualizationRecommendData" v-if="index > 0">
                       <div class="individualization-img">
@@ -299,7 +299,9 @@
         sowingPrevTwo: false,
         sowingPrevOne: false,
         sowingIndex: 1,
-        isShowScrollButton: false
+        isShowScrollButton: false,
+        week: this.currentWeek(),
+        day: this.currentDay()
       }
     },
     components: {
@@ -323,12 +325,7 @@
       ]
       /* 个性化推荐数据 */
       this.individualizationRecommendData = [
-        {
-          imgDes: '每日歌曲推荐',
-          personalTasteDes: '根据你的口味生成，每天6:00更新',
-          week: this.currentWeek(),
-          day: this.currentDay()
-        },
+        {},
         {
           img: 'http://p1.music.126.net/ICv1ZqD39lvvS0CdhHl1EA==/109951163320645123.jpg?param=140y140',
           imgDes: 'Space Club/蹦迪必备',

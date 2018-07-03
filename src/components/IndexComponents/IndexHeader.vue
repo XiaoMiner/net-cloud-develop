@@ -11,8 +11,8 @@
             <li class="fl" v-bind:class="{navClickedBg: isShowFM, navRecoveryDefault: isRecoveryFM}"><router-link class="router-link" to="/findMusic" @click.native="toggleNetCloudNav(findMusic)">发现音乐</router-link><i v-bind:class="{redArrow: isShowFM}"></i></li>
             <li class="fl" v-bind:class="{navClickedBg: isShowMM, navRecoveryDefault: isRecoveryMM}"><router-link class="router-link" to="/myMusic" @click.native="toggleNetCloudNav(myMusic)">我的音乐</router-link><i v-bind:class="{redArrow: isShowMM}"></i></li>
             <li class="fl" v-bind:class="{navClickedBg: isShowF, navRecoveryDefault: isRecoveryF}"><router-link class="router-link" to="/friend" @click.native="toggleNetCloudNav(friend)">朋友</router-link><i v-bind:class="{redArrow: isShowF}"></i></li>
-            <li class="fl" v-bind:class="{navClickedBg: isShowSM, navRecoveryDefault: isRecoverySM}"><a href="" class="router-link" @click.native="toggleNetCloudNav(shoppingMall)">商城</a><i v-bind:class="{redArrow: isShowSM}"></i></li>
-            <li class="fl" v-bind:class="{navClickedBg: isShowSP, navRecoveryDefault: isRecoverySP}"><a href="" class="router-link" @click.native="toggleNetCloudNav(musician)">音乐人</a><i v-bind:class="{redArrow: isShowSP}"></i></li>
+            <li class="fl" v-bind:class="{navClickedBg: isShowSM, navRecoveryDefault: isRecoverySM}"><router-link class="router-link" to="/shoppingMall" @click.native="toggleNetCloudNav(shoppingMall)">商城</router-link><i v-bind:class="{redArrow: isShowSM}"></i></li>
+            <li class="fl" v-bind:class="{navClickedBg: isShowSP, navRecoveryDefault: isRecoverySP}"><router-link class="router-link" to="/musician" @click.native="toggleNetCloudNav(musician)">音乐人</router-link><i v-bind:class="{redArrow: isShowSP}"></i></li>
             <li class="fl" v-bind:class="{navClickedBg: isShowDC, navRecoveryDefault: isRecoveryDC}"><router-link class="router-link" to="/downloadClient" @click.native="toggleNetCloudNav(downloadClient)">下载客户端</router-link><i class="hot"></i><i v-bind:class="{redArrow: isShowDC}"></i></li>
           </ul>
 

@@ -5,13 +5,11 @@ import App from './App'
 import router from './router'
 import Vuex from 'vuex'
 import store from './vuex/store'
-// import BackTop from './directive/v-back-top'
+import BackTop from './directive/v-back-top'
 import $ from 'jquery'
-// import VueAwesomeSwiper from 'vue-awesome-swiper'
-// Vue.use(VueAwesomeSwiper)
 Vue.use(Vuex)
 Vue.config.productionTip = false
-/*window.onscroll = function() {
+window.onscroll = function() {
   let distanceTop = Math.ceil(document.documentElement.scrollTop);
   // console.log(distanceTop);
   if(distanceTop > 0){
@@ -20,7 +18,7 @@ Vue.config.productionTip = false
     store.commit('update', 0)
   }
 }
-BackTop.directive()*/
+BackTop.directive()
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
