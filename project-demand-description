@@ -77,7 +77,110 @@
                 prevEl: '.swiper-button-prev'
               }
    */
+   + 通过控制swiper.css中的.swiper-pagination-bullet选择器控制每个分页器的样式,
+     通过控制.swiper-pagination-bullet-active选择器来控制选中分页器的样式。
+     通过控制.swiper-pagination-clickable .swiper-pagination-bullet选择器控制鼠标放到分页器上时的鼠标类型。
 
+   + vue-awesome-swiper嵌套
+     [`<div>
+     <swiper :options="swiperOption" ref="mySwiper">
+          <swiper-slide>
+            <swiper :options="swiperOptionWrap" ref="mySwiperWrap">
+              <swiper-slide>
+              </swiper-slide>
+            </swiper>
+          </swiper-slide>
+          <div class="swiper-scrollbar" style="top: 3px;height: 4px;"></div>
+          <div class="swiper-pagination-wrap"  slot="pagination"></div>
+          <div class="swiper-button-prev-wrap" slot="button-prev"></div>
+          <div class="swiper-button-next-wrap" slot="button-next"></div>
+       </swiper>
+       <div class="swiper-pagination"  slot="pagination"></div>
+       <div class="swiper-button-prev" slot="button-prev"></div>
+       <div class="swiper-button-next" slot="button-next"></div>
+
+     </div>
+       `
+     > 嵌套的轮播图通过以下配置进行单独处理swiper之间而不受影响
+
+       ` data() {
+              return {
+                swiperOption: {
+                },
+                swiperOptionWrap: {
+                }
+              }
+         }
+       `
+     > 分页器通过给不同的类名处理而不受影响
+
+       ` data() {
+              return {
+                swiperOption: {
+                  navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                  }
+                },
+                swiperOptionWrap: {
+                  navigation: {
+                    nextEl: '.swiper-button-next-wrap',
+                    prevEl: '.swiper-button-next-wrap'
+                  }
+                }
+              }
+        }
+      `
+
+      > 前进后退的按钮通过给不同的类名处理而不受影响
+
+      + 第一步
+      `data() {
+             return {
+               swiperOption: {
+                navigation: {
+                el: '.swiper-pagination',
+                clickable: true
+                }
+              },
+              swiperOptionWrap: {
+                pagination: {
+                  el: '.swiper-pagination-wrap',
+                  clickable: true
+                }
+              }
+             }
+      }
+      `
+       + 第二步
+         > 在swiper.css中添加新的类选择器.swiper-button-next-wrap、.swiper-button-next-wrap样式
+           和swiper-button-prev、swiper-button-next的样式一样,
+
+     > 给swiper添加滚动条[swiper.css中没有给滚动条设置高度出现未显示的问题]
+
+       + <div class="swiper-scrollbar" style="top: 3px;height: 4px;"></div>
+       + 通过在swiper.css中给.swiper-scrollbar-drag类选择器添加样式控制滚动条的颜色。
+
+     > 控制前进后退按钮的颜色。
+       + 在swiper.css中, 控制以下类选择器中的background-image属性url中的 '%23007aff'部分来控制颜色。
+       `.swiper-button-prev,
+       .swiper-container-rtl .swiper-button-next {
+         background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");
+         left: 10px;
+         right: auto;
+       }
+       .swiper-button-next,
+       .swiper-container-rtl .swiper-button-prev {
+         background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");
+         right: 10px;
+         left: auto;
+       }
+       `
+     > swiper中禁止手动滑动
+     
+       + 给<swiper-slide>标签添加class="swiper-no-swiping"当前slide被禁用。
+       +给<swiper>标签添加class="swiper-no-swiping"全部slide被禁用
+       ]
 # vue各个文件引入。
   + main.js =>入口 全局使用
   + 指定文件 => 内部使用
@@ -121,3 +224,19 @@
        expression: 绑定值的表达式或变量名。 例如 v-my-directive="1 + 1" ， expression 的值是 "1 + 1"
        arg: 传给指令的参数。例如 v-my-directive:foo， arg 的值是 "foo"
  })
+
+# vue-fullpage 全屏滚动
+
+# 全屏滚动 vue-awesome-swiper
+
+# 自定义属性
+
+<div id="text" value="123"  data-name="黑哒哒的盟友"><div>
+
+JQUERY取值：$("#text").data("name");
+
+# 可视高度
+  $(window).height()
+  document.documentElement.clientHeight
+
+

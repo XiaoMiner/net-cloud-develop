@@ -7,6 +7,7 @@ import FindMusic from '@/components/IndexComponents/IndexContent/IndexContentFin
 import MyMusic from '@/components/IndexComponents/IndexContent/IndexContentMyMusic'
 import Friend from '@/components/IndexComponents/IndexContent/IndexContentFriend'
 import DownloadClient from '@/components/IndexComponents/IndexContent/IndexContentDownloadClient'
+import Musician from '@/components/AppOutputComponent/AppOutputMusician'
 /* 网易云发现音乐导航 */
 import Recommend from '@/components/IndexComponents/IndexContent/FindMusic/FindMusicRecommend'
 import RankingList from '@/components/IndexComponents/IndexContent/FindMusic/FindMusicRankingList'
@@ -58,6 +59,11 @@ export default new Router({
           meta: {auth: true}
         }
       ]
+    },
+    {
+      path: '/musician',
+      name: 'AppOutputMusician',
+      component: Musician
     }
 
   ]

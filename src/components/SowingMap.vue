@@ -1,6 +1,7 @@
 <template>
   <div class="sowing-wrap">
-    <swiper :options="swiperOption" ref="mySwiper">
+    <!--swiper添加swiper-no-swiping类,禁用手动滑动功能-->
+    <swiper :options="swiperOption" class="swiper-no-swiping" ref="mySwiper">
       <!-- slides -->
       <swiper-slide v-for="imgSrc in sowingImagesData" :key="imgSrc">
           <img :src="imgSrc" alt="图片">
@@ -31,7 +32,8 @@ export default {
           disableOnInteraction: false
         },
         direction: 'horizontal',
-        grabCursor: true,
+        // 指针变为小手
+        grabCursor: false,
         loop: true,
         setWrapperSize: true,
         autoHeight: true,

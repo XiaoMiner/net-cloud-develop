@@ -62,6 +62,14 @@
     路由组件输出: 触发路由以后才会加载对应的组件。
     `
 
+    + FullPage.vue中的问题
+      > 全屏滚动 让每一张元素都呈现全屏的状态.
+     问题分析:
+       首先我给<div class="fullpage-wrap"></div>设置全屏样式,
+       给<swiper-slide style="background: red"></swiper-slide>标签设置背景色,未能达到预期的效果。
+       然后我给<swiper :style="{height: client+'px'}"></swiper>设置全屏样式,达到预期的效果。
+     因为swiper-slide标签随着swiper标签的尺寸自适应的。
+
   # vue的知识用法
     + 给router-link设置点击事件时,需要添加修饰符.native。
           + <router-link to="" @click.native=""></router-link>
