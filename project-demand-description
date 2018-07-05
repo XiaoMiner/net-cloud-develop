@@ -67,6 +67,7 @@
 
 # vue轮播图
   + npm install vue-awesome-swiper --save
+  + 1> 引入到index.html全局使用 (解决) 2> 引入到swiper组件的script中(解决)  3>引入到swiper组件的style中不可以(原因未解决)
   + swiper 版本 4.0 书写形式。
    /* pagination: {
                 el: '.swiper-pagination',
@@ -80,6 +81,9 @@
    + 通过控制swiper.css中的.swiper-pagination-bullet选择器控制每个分页器的样式,
      通过控制.swiper-pagination-bullet-active选择器来控制选中分页器的样式。
      通过控制.swiper-pagination-clickable .swiper-pagination-bullet选择器控制鼠标放到分页器上时的鼠标类型。
+
+   > 问题: 点击了前进和后退的按钮以后自动添加轮廓
+     + 添加outline-style: none;样式。
 
    + vue-awesome-swiper嵌套
      [`<div>
@@ -177,9 +181,13 @@
        }
        `
      > swiper中禁止手动滑动
-     
+
        + 给<swiper-slide>标签添加class="swiper-no-swiping"当前slide被禁用。
        +给<swiper>标签添加class="swiper-no-swiping"全部slide被禁用
+
+     > 给.sowing-wrap设置730px (图片的宽度为730px) 第一张图片的宽度太小,把最后一张图片的部分显示出来了.
+       + 解决：给图片设置为对齐方式
+     >
        ]
 # vue各个文件引入。
   + main.js =>入口 全局使用

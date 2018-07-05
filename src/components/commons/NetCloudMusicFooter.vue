@@ -39,7 +39,7 @@
 
 <script>
   export default {
-    name: "NetCloudMusicFooter"
+    name: 'NetCloudMusicFooter'
   }
 </script>
 

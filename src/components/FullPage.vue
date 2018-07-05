@@ -46,7 +46,7 @@
             <p class="three-view-p">您安心做好音乐，剩下的交给我们</p>
             <ul class="three-view-banner">
               <swiper :options="swiperOptionWrap" ref="mySwiperWrap">
-                <swiper-slide class="banner-view"  v-for="singleInfoOne in threeViewBannerInfo">
+                <swiper-slide class="banner-view"  v-for="singleInfoOne in threeViewBannerInfo" :key="singleInfoOne">
                   <div class="banner-view-content">
                     <h3 class="banner-view-h3">{{singleInfoOne.title}}</h3>
                     <p class="banner-view-p">{{singleInfoOne.date}}</p>

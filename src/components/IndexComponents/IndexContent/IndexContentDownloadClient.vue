@@ -182,6 +182,7 @@ export default {
   name: 'IndexContentDownloadClient',
   data(){
     return {
+      flag: 1
     }
   },
   created(){
@@ -189,6 +190,7 @@ export default {
   },
   mounted(){
     var _this = this;
+
     // 设置延时器的目的是: dom元素全部加载完毕以后的进行逻辑处理。
     // 存在的问题: 网络如果不好,dom加载缓慢目前没有处理方案。
     setTimeout(function(){
@@ -215,7 +217,7 @@ export default {
       let _this = this;
       window.addEventListener('scroll', function(){
         let scrollTop = document.documentElement.scrollTop;
-        console.log(scrollTop)
+        // console.log(scrollTop)
         if(scrollTop < 545 && scrollTop > 100 || scrollTop == 100 ){
           $(_this.$refs.svwtH).css({
             transition: 'all 1s ease 0.3s',
@@ -339,7 +341,10 @@ export default {
 
   },
   watch: {
-    }
+    },
+  beforeDestroy(){
+    window.scrollTo(0, 0)
+  }
   }
 </script>
 

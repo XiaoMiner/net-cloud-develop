@@ -44,6 +44,9 @@ export default {
       newpIsShowDefaultBg: true
     }
   },
+  created(){
+
+  },
   computed: {
     getValue(){
       console.log(this.$store.state.DLS_pageEnter);

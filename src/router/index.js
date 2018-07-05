@@ -18,6 +18,15 @@ import NewPlate from '@/components/IndexComponents/IndexContent/FindMusic/FindMu
 Vue.use(Router)
 
 export default new Router({
+  mode: 'hash',// 模式不能修改为history,因为有用到hash处理逻辑。
+  scrollBehavior (to, from, savedPosition) {
+    console.log(savedPosition)
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
   routes: [
     {path: '/netCloudMusic', redirect: '/recommend'},
     {path: '/findMusic', redirect: '/recommend'},
@@ -65,6 +74,5 @@ export default new Router({
       name: 'AppOutputMusician',
       component: Musician
     }
-
   ]
 })
