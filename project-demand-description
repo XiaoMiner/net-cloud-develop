@@ -3,7 +3,7 @@
 
  + npm install vee-validate@2.0.0-rc.25 --save
    > question: 要使用2.0.0版本, 不然无法使用Validator模块中addLocale()方法。
-   > 把npm版本降为了@4.6.0
+   > 把npm版本降为了 npm install npm@4.6.0 -g
   + import VeeValidate, {Validator} from 'vee-validate'
     import CN from 'vee-validate/dist/locale/zh_CN'
     Validator.addLocale(CN) // 文件
@@ -177,7 +177,7 @@
        }
        `
      > swiper中禁止手动滑动
-     
+
        + 给<swiper-slide>标签添加class="swiper-no-swiping"当前slide被禁用。
        +给<swiper>标签添加class="swiper-no-swiping"全部slide被禁用
        ]
