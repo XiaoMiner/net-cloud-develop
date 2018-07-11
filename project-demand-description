@@ -3,7 +3,7 @@
 
  + npm install vee-validate@2.0.0-rc.25 --save
    > question: 要使用2.0.0版本, 不然无法使用Validator模块中addLocale()方法。
-   > 把npm版本降为了 npm install npm@4.6.0 -g
+   > 把npm版本降为了 npm install npm@4.6.0 -g (重新提交版本)
   + import VeeValidate, {Validator} from 'vee-validate'
     import CN from 'vee-validate/dist/locale/zh_CN'
     Validator.addLocale(CN) // 文件
