@@ -22,7 +22,7 @@
     "vue-fullpage": "^2.0.5",
     "vue-i18n": "^7.6.0",
     "vue-router": "^3.0.1",
-    "vee-validate" : "^2.0.0",
+    "vee-validate": "^2.0.0",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
