@@ -41,8 +41,29 @@ export default {
       songIsShowDefaultBg: true,
       ancIsShowDefaultBg: true,
       singerIsShowDefaultBg: true,
-      newpIsShowDefaultBg: true
+      newpIsShowDefaultBg: true,
+      findMusicNavName: ''
     }
+  },
+  mounted(){
+    /********************************************/
+    //处理在刷新页面以后导航的默认选中的背景色处理逻辑
+    let routeName = window.location.hash.slice(2);
+    if(routeName == 'recommend'){
+      this.findMusicNavName = '推荐'
+    }else if(routeName == 'rankingList'){
+      this.findMusicNavName = '排行榜'
+    }else if(routeName == 'songSheet') {
+      this.findMusicNavName = '歌单'
+    }else if(routeName == 'anchorsPlatform'){
+      this.findMusicNavName = '主播平台'
+    }else if(routeName == 'singer'){
+      this.findMusicNavName = '歌手'
+    }else if(routeName == 'newPlate'){
+      this.findMusicNavName = '新碟上架'
+    }
+    this.isShowMusicNavBg(this.findMusicNavName, true, false);
+    /*********************************************/
   },
   computed: {
     getValue(){
