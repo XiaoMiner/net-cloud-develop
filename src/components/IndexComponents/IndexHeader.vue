@@ -68,9 +68,7 @@
               </ul>
             </div>
           </div>
-
-          <a  id="video" class="fr pointer video-submission">视频投稿</a>
-
+          <router-link to="/login" id="video" class="fr pointer video-submission">登录</router-link>
           <div class="fr search clearFix">
             <i class="magnifier fl pointer"></i>
             <input class="fr" type="text" placeholder="音乐/视频/电台/用户">
