@@ -42,12 +42,12 @@
           zh_CN: {
             messages: {
               required: (filed) => '请输入您的'+filed
+            },
+            attribute: {
+              email: '邮箱',
+              qq: 'qq账号'
             }
           },
-          attribute: {
-            email: '邮箱',
-            qq: 'qq账号'
-          }
       }
       Validator.updateDictionary(dictionary)
 
