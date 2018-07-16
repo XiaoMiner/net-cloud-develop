@@ -15,6 +15,8 @@ import SongSheet from '@/components/IndexComponents/IndexContent/FindMusic/FindM
 import AnchorsPlatform from '@/components/IndexComponents/IndexContent/FindMusic/FindMusicAnchorsPlatform'
 import MusicSinger from '@/components/IndexComponents/IndexContent/FindMusic/FindMusicSinger'
 import NewPlate from '@/components/IndexComponents/IndexContent/FindMusic/FindMusicNewPlate'
+/*网易云登录*/
+import MyLogin from '@/components/MyLogin'
 Vue.use(Router)
 
 export default new Router({
@@ -30,11 +32,12 @@ export default new Router({
   routes: [
     {path: '/netCloudMusic', redirect: '/recommend'},
     {path: '/findMusic', redirect: '/recommend'},
+    {path: '/login', name: 'MyLogin', component:MyLogin },
     {
       path: '/',
       name: 'NetCloudMusicIndex',
       component: NetCloudMusicIndex,
-      redirect: '/recommend',
+      redirect: '/login',
       children: [
         {
           path: '/findMusic',

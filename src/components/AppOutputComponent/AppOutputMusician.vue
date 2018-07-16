@@ -2,7 +2,7 @@
     <div id="musician">
       <div class="musician-header">
         <div class="musician-header-wrap">
-          <router-link class="header-logo" to="/">网易云音乐</router-link>
+          <router-link class="header-logo" to="/recommend">网易云音乐</router-link>
           <ul class="header-nav">
             <li class="header-nav-list fs"><a class="nav-list-a" style="color: #fff" href="javascript:void(0)">首页</a></li>
             <li class="header-nav-list fs"><a class="nav-list-a" href="javascript:void(0)">个人中心</a></li>

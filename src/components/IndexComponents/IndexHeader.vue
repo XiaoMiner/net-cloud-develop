@@ -68,9 +68,7 @@
               </ul>
             </div>
           </div>
-
-          <a  id="video" class="fr pointer video-submission">视频投稿</a>
-
+          <a href="javascript: void(0)" id="video" class="fr pointer video-submission">视频投稿</a>
           <div class="fr search clearFix">
             <i class="magnifier fl pointer"></i>
             <input class="fr" type="text" placeholder="音乐/视频/电台/用户">
