@@ -15,6 +15,8 @@ import SongSheet from '@/components/IndexComponents/IndexContent/FindMusic/FindM
 import AnchorsPlatform from '@/components/IndexComponents/IndexContent/FindMusic/FindMusicAnchorsPlatform'
 import MusicSinger from '@/components/IndexComponents/IndexContent/FindMusic/FindMusicSinger'
 import NewPlate from '@/components/IndexComponents/IndexContent/FindMusic/FindMusicNewPlate'
+/*登录页面*/
+import MyLogin from '@/components/MyLogin'
 /*测试*/
 import TestOne from '@/components/IndexComponents/IndexContent/TestOne'
 import TestTwo from '@/components/IndexComponents/IndexContent/TestTwo'
