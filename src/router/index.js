@@ -28,7 +28,7 @@ export default new Router({
       path: '/',
       name: 'NetCloudMusicIndex',
       component: NetCloudMusicIndex,
-      redirect: '/recommend',
+      redirect: '/login',
       children: [
         {
           path: '/findMusic',
