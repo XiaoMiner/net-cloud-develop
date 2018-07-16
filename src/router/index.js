@@ -15,11 +15,13 @@ import SongSheet from '@/components/IndexComponents/IndexContent/FindMusic/FindM
 import AnchorsPlatform from '@/components/IndexComponents/IndexContent/FindMusic/FindMusicAnchorsPlatform'
 import MusicSinger from '@/components/IndexComponents/IndexContent/FindMusic/FindMusicSinger'
 import NewPlate from '@/components/IndexComponents/IndexContent/FindMusic/FindMusicNewPlate'
-/*网易云登录*/
-import MyLogin from '@/components/MyLogin'
+/*测试*/
+import TestOne from '@/components/IndexComponents/IndexContent/TestOne'
+import TestTwo from '@/components/IndexComponents/IndexContent/TestTwo'
 Vue.use(Router)
 
-export default new Router({
+
+var vueRouter = new Router({
   mode: 'hash',// 模式不能修改为history,因为有用到hash处理逻辑。
   scrollBehavior (to, from, savedPosition) {
     console.log(savedPosition)
@@ -50,25 +52,33 @@ export default new Router({
             {path: '/anchorsPlatform', name: 'FindMusicAnchorsPlatform', component: AnchorsPlatform, meta: {auth: true}},
             {path: '/singer', name: 'FindMusicSinger', component: MusicSinger, meta: {auth: true}},
             {path: '/newPlate', name: 'FindMusicNewPlate', component: NewPlate, meta: {auth: true}}
-          ]
+          ],
+          meta: {
+            keepAlive: false // 需要被缓存
+          },
         },
         {
           path: '/myMusic',
           name: 'IndexContentMyMusic',
           component: MyMusic,
-          meta: {auth: true}
+          meta: {auth: true, keepAlive: true}
         },
         {
           path: '/friend',
           name: 'IndexContentFriend',
           component: Friend,
-          meta: {auth: true}
+          children: [
+            {path: '/testOne', name: 'TestOne', component: TestOne, meta: {auth: true, keepAlive: true}},
+            {path: '/testTwo', name: 'TestTwo', component: TestTwo, meta: {auth: true, keepAlive: true}},
+          ],
+          meta: {auth: true,keepAlive: true },
+
         },
         {
           path: '/downloadClient',
           name: 'IndexContentDownloadClient',
           component: DownloadClient,
-          meta: {auth: true}
+          meta: {auth: true,keepAlive: false}
         }
       ]
     },
@@ -79,3 +89,19 @@ export default new Router({
     }
   ]
 })
+vueRouter.beforeEach(function(to, from, next){
+  const nextRoute = ['/friend', '/testOne', '/testTwo'];
+  let hashFriend = sessionStorage.getItem('hashFriend');
+  console.log(to);
+  if(to.path == '/friend'){
+    if(hashFriend == '/testTwo'){
+      sessionStorage.setItem('hashFriend', '');
+      vueRouter.push({name: 'TestTwo'});
+    }else if(hashFriend == '/testOne'){
+      vueRouter.push({name: 'TestOne'});
+    }
+  }
+
+  next();
+})
+export default vueRouter;

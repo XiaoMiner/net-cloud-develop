@@ -1,6 +1,12 @@
 <template>
 <div id="friend">
   <div class="friend-top"></div>
+  <router-link to="/testOne">测试1</router-link>
+  <router-link to="/testTwo">测试2</router-link>
+  <keep-alive v-if="$route.meta.keepAlive">
+    <router-view></router-view>
+  </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
   <div class="friend-content">
     <div class="friend-content-wrap clearFix">
       <div class="friend-content-wrap-left">
@@ -72,6 +78,7 @@
     NetCloudMusicFooter
   },
     created() {
+      sessionStorage.setItem('hashFriend', 'testOne');
     // document.documentElement.scrollTop = 0;
     },
   mounted(){

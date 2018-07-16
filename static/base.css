@@ -43,13 +43,13 @@ input,button,textarea,select{*font-size:100%;}
 /*清除浮动处理*/
 
 .clearFix:after{
-  content:"";
-  display:block;
-  height:0;
-  clear:both;
-  visibility:hidden;
-  line-height: 0;
-}
+   content:"";
+   display:block;
+   height:0;
+   clear:both;
+   visibility:hidden;
+   line-height: 0;
+ }
 
 /*鼠标样式处理*/
 .pointer {

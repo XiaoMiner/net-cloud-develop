@@ -82,8 +82,21 @@
     + ref 模板变量的使用
       + ref 与 v-for 组合使用时,才会返回一个数组, 相反,只会获取到左后一个带有ref属性的元素。
       + ref可以获取到子组件实例, 其他情况下获取不到
-
-  ## css
+    + 切换单页面应用的缓存
+      > keep-alive组件
+        `
+          <keep-alive>
+                <router-view v-if="$route.meta.keepAlive"></router-view>
+          </keep-alive>
+              <router-view v-if="!$route.meta.keepAlive"></router-view>
+        `
+      > router/index.js的配置。
+        `
+          meta: {
+                      keepAlive: false // false => 不需要缓存 true => 需要缓存
+                    }
+        `
+   # css
     + 在static文件夹中添加base.css文件, 为项目设置基本样式。
       > base.css 引入到index.html中就可以全局使用。
     + 给浏览器设置统一字体:
