@@ -296,3 +296,9 @@ JQUERY取值：$("#text").data("name");
         // 对响应错误做点什么
         return Promise.reject(error);
       });
+
+# axios vue中配置cookie
+  + axios默认情况不会携带cookie, 需要使用axios.defaults.withCredentials = true;来解决
+  + 这时需要后台配合：
+    + header头部 Access-Control-Credentials: true;
+    + Access-Control-Allow-Origin的值不能设置为'*', 因为会与axios.defaults.withCredentials = true;冲突, 所以需要配置指定地址。
