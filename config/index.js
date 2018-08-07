@@ -10,7 +10,18 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        // 第三方接口
+        target: 'http://39.106.219.106:8090',
+        //// 在本地创建一个虚拟的服务器。发送请求的数据,同时接受数据,服务器与服务器之间进行数据交互就不存在跨域的问题
+        changeOrigin: true,
+        pathRewrite: {
+          // 路径重写,替换target请求中的地址
+          '^/api': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

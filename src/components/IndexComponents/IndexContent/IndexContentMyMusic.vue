@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import qs from 'qs'
 export default {
   name: 'IndexContentMyMusic',
   data(){
@@ -33,7 +34,62 @@ export default {
   },
   created(){
     var _this = this;
-    $.ajax('http://39.106.219.106:8090/Terminal1/LN_AreaUserInfoManager.asmx/SelectUserInfoApi', {
+    console.dir(_this)
+    /*var params = new URLSearchParams();
+    params.append('userId', '2638')
+    params.append('userName', '')
+    params.append('userPhone', '')
+    params.append('Num', '1')
+    params.append('rowNum', '30')
+    params.append('platformId', '1')*/
+    // 代理服务器解决跨域的问题
+   /* _this.$axios({
+      baseURL: '/api',
+      url: '/Terminal1/LN_AreaUserInfoManager.asmx/SelectUserInfoApi',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: qs.stringify({
+        userId: '2638',
+        userName: '',
+        userPhone: '',
+        Num: 1,
+        rowNum: 30,
+        platformId: 1
+      }),
+    }).then(function(responseData){
+      console.log(responseData)
+    }).catch(function(){
+      console.log('抛出一个错误')
+    })*/
+    _this.$axios({
+      url: 'http://39.106.219.106:8090/Terminal1/LN_AreaUserInfoManager.asmx/SelectUserInfoApi',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: qs.stringify({
+        userId: '2638',
+        userName: '',
+        userPhone: '',
+        Num: 1,
+        rowNum: 30,
+        platformId: 1
+      }),
+    }).then(function(responseData){
+      // console.log(responseData)
+      if(responseData.status == 200) {
+        // console.log(responseData.message);
+        _this.userInfo = responseData.data.row
+      }else {
+        console.log(responseData.message)
+      }
+    }).catch(function(){
+      console.log('抛出一个错误')
+    })
+    // jquery中ajax请求。
+/*    $.ajax('http://39.106.219.106:8090/Terminal1/LN_AreaUserInfoManager.asmx/SelectUserInfoApi', {
       type: 'post',
       data: {
         userId: '2638',
@@ -56,7 +112,7 @@ export default {
       error: function(){
         console.log('请求出错!')
       }
-    })
+    })*/
   }
 }
 </script>

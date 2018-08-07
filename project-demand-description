@@ -199,7 +199,7 @@
   + 自定义指令directive
 # vuex的应用
   + 状态使用
-
+  + npm install vuex --save
 # 逻辑处理
   + 刷新页面
   + 不同角度进入
@@ -270,3 +270,7 @@ JQUERY取值：$("#text").data("name");
         }
      }
 
+# axios vue中处理ajax异步请求的对象。
+  + npm install axios --save 首先安装axios
+  + 引入到main.js中 import axios from './axios'
+  + Vue.prototype.$http = axios 放到Vue的原型中。

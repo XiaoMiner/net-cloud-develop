@@ -1,6 +1,6 @@
 <template>
   <div id="my-login" :style="{height: clientHeight+'px'}">
-    <div class="login-validate-part">
+    <div class="login-validate-part" ref="loginPart" @mousedown="mouseDownHandle" @mousemove="mouseMoveHandle" @mouseup="mouseUpHandle">
       <div class="login-validate-wrap">
         <h3 class="login-validate-h3">登录</h3>
         <div class="login-validate-content">
@@ -19,8 +19,6 @@
           </form>
         </div>
       </div>
-
-
     </div>
 
   </div>
@@ -80,8 +78,14 @@ export default {
       userPasswordInfo: '123456',
       isShow: false,
       isHide: true,
-      detectionInfo:''
+      detectionInfo:'',
+      isDown: false,//该状态表示是否按下鼠标
+      mousePositionBoxX: 0,
+      mousePositionBoxY: 0,
+      isLeaveEle: 0,//该状态表示鼠标是否离开元素。
     }
+  },
+  mounted(){
   },
   methods: {
     submit(){
@@ -107,6 +111,43 @@ export default {
       if(this.userName == this.userNameInfo && this.userPassword == this.userPasswordInfo){
         window.location = window.location.origin+'/#/recommend';
       }
+    },
+    mouseDownHandle(e){
+      // 鼠标按下时,计算鼠标在盒子中的位置
+      // console.log(e);
+      console.log('mouseDown')
+      this.mousePositionBoxX = parseInt(e.clientX) - parseInt($(this.$refs.loginPart)[0].offsetLeft);
+      this.mousePositionBoxY = parseInt(e.clientY) - parseInt($(this.$refs.loginPart)[0].offsetTop);
+      console.log('mouseDown'+ e.clientX);
+      console.log('mouseDownElementOffsetLe'+$(this.$refs.loginPart)[0].offsetLeft);
+      console.log('mouseInBox' + this.mousePositionBoxX)
+      this.isDown = true;
+    },
+    mouseUpHandle(){
+      console.log('mouseUp');
+      this.isDown = false;
+    },
+    mouseMoveHandle(e){
+      // 鼠标是否脱离了拖动元素
+    /* let differenceX = e.clientX - parseInt($(this.$refs.loginPart)[0].offsetLeft),
+          differenceY = e.clientY - parseInt($(this.$refs.loginPart)[0].offsetTop),
+          elementOffsetHeight = $(this.$refs.loginPart)[0].offsetHeight,
+          elementOffsetWidth= $(this.$refs.loginPart)[0].offsetWidth;
+      if(differenceX <= elementOffsetWidth || differenceY <= elementOffsetHeight){
+        this.isLeaveEle = 0;
+      }else {
+        this.isLeaveEle = 1;
+      }*/
+      if(this.isDown){
+        let distanceX = parseInt(e.clientX) - this.mousePositionBoxX;
+        let distanceY = parseInt(e.clientY) - this.mousePositionBoxY;
+
+        $(this.$refs.loginPart)[0].style.left = distanceX + 'px';
+        $(this.$refs.loginPart)[0].style.top = distanceY + 'px';
+        console.log('mouseMoveClientX'+e.clientX);
+        console.log('mouseMoveOffsetLeft' + distanceX);
+      }
+      console.log('mouseMove');
     }
   },
   watch:{
@@ -133,13 +174,16 @@ export default {
   background: #C20C0C;
   border: 1px solid #c20c0c;
   box-sizing: border-box;
+  position: relative;
 
 }
 #my-login .login-validate-part {
   width: 362px;
   height: 350px;
-  margin: 7% auto;
   background: #fff;
+  position: absolute;
+  left: 683px;
+  top: 124px;
 }
 #my-login .login-validate-wrap {
   margin: 0 24px;

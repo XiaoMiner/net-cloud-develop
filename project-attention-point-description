@@ -80,8 +80,10 @@
       `computed: {getValue(){return this.$store.state.pageEnter}}`监听到store仓库中的pageEnter变化,从而改变getValue的值。
       `watch: {getValue(newValue, oldValue){}} `watch中监听到getValue值的变化。
     + ref 模板变量的使用
-      + ref 与 v-for 组合使用时,才会返回一个数组, 相反,只会获取到左后一个带有ref属性的元素。
+      + ref 与 v-for 组合使用时,才会返回一个数组, 相反,只会获取到最后一个带有ref属性的元素。
       + ref可以获取到子组件实例, 其他情况下获取不到
+      > <div ref="div"></div>
+      使用方式: this.$refs.div
     + 切换单页面应用的缓存
       > keep-alive组件
         `
@@ -122,6 +124,11 @@
         <div class="son-ele">
         </div>
      <div>
+
+    + 问题: 再给元素设置div的盒子【position: absolute; left: 50%;】样式, left的值为百分比的格式,是否还有设置为px的格式?
+          + 分析:按照上面的格式,我给[/login]登录页的登录部分设置鼠标[按下-滑动-弹起]的效果时,每次按下鼠标时,
+            计算的div盒子距离左侧的距离时存在问题。
+          + 结论: 统一样式值的单位。
 
   ## 组件结构说明
     > 组件应用涉及到三大部分: 引入组件 调用组件 注册到父实例中。

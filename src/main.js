@@ -6,8 +6,11 @@ import router from './router'
 import Vuex from 'vuex'
 import store from './vuex/store'
 import BackTop from './directive/v-back-top'
+import axios from 'axios'
 import $ from 'jquery'
 Vue.use(Vuex)
+// 把axios绑定到vue实例的原型中,以便于在全局使用, 在其他组件中使用。
+Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
 window.onscroll = function() {
   let distanceTop = Math.ceil(document.documentElement.scrollTop);
