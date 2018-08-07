@@ -273,4 +273,26 @@ JQUERY取值：$("#text").data("name");
 # axios vue中处理ajax异步请求的对象。
   + npm install axios --save 首先安装axios
   + 引入到main.js中 import axios from './axios'
-  + Vue.prototype.$http = axios 放到Vue的原型中。
+  + Vue.prototype.$axios = axios 放到Vue的原型中。
+
+# axios vue中配置token
+  // 默认值添加
+  + axios.defaults.timeout = 5000;
+  + axios.defaults.baseURL = '/api';
+  // request拦截器处理token的添加
+    axios.interceptors.request.use(function (config) {
+        // 在发送请求之前做些什么
+        return config;
+      }, function (error) {
+        // 对请求错误做些什么
+        return Promise.reject(error);
+      });
+
+  // response 拦截器处理token的更新。隔一段时间token失效之后的处理, 把token保存到vuex中,可以使用状态管理中的dispatch()完成更新。
+    axios.interceptors.response.use(function (response) {
+        // 对响应数据做点什么
+        return response;
+      }, function (error) {
+        // 对响应错误做点什么
+        return Promise.reject(error);
+      });

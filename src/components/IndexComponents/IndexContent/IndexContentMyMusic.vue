@@ -64,7 +64,7 @@ export default {
       console.log('抛出一个错误')
     })*/
     _this.$axios({
-      url: 'http://39.106.219.106:8090/Terminal1/LN_AreaUserInfoManager.asmx/SelectUserInfoApi',
+      url: 'http://39.106.219.106:8090/Terminal2/LN_AreaUserInfoManager.asmx/SelectUserInfoApi',
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
