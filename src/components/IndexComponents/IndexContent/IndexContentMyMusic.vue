@@ -25,6 +25,7 @@
 
 <script>
 import qs from 'qs'
+import store from './../../../vuex/store'
 export default {
   name: 'IndexContentMyMusic',
   data(){
@@ -82,6 +83,7 @@ export default {
       if(responseData.status == 200) {
         // console.log(responseData.message);
         _this.userInfo = responseData.data.row
+        _this.$store.dispatch('update');
       }else {
         console.log(responseData.message)
       }

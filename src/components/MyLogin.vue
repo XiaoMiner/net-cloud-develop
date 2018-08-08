@@ -74,8 +74,8 @@ export default {
       clientHeight: document.documentElement.clientHeight,
       userName: '',
       userPassword: '',
-      userNameInfo: '17853100883@163.com',
-      userPasswordInfo: '123456',
+      userNameInfo: this.$md5('17853100883@163.com'),
+      userPasswordInfo: this.$md5('123456'),
       isShow: false,
       isHide: true,
       detectionInfo:'',
@@ -86,6 +86,7 @@ export default {
     }
   },
   mounted(){
+    console.dir(this.$md5)
   },
   methods: {
     submit(){
@@ -108,23 +109,23 @@ export default {
       // 帐号 密码 都不为空。
       this.isShow = false;
       this.isHide = true;
-      if(this.userName == this.userNameInfo && this.userPassword == this.userPasswordInfo){
+      if(this.$md5(this.userName) == this.userNameInfo && this.$md5(this.userPassword) == this.userPasswordInfo){
         window.location = window.location.origin+'/#/recommend';
       }
     },
     mouseDownHandle(e){
       // 鼠标按下时,计算鼠标在盒子中的位置
       // console.log(e);
-      console.log('mouseDown')
+      // console.log('mouseDown')
       this.mousePositionBoxX = parseInt(e.clientX) - parseInt($(this.$refs.loginPart)[0].offsetLeft);
       this.mousePositionBoxY = parseInt(e.clientY) - parseInt($(this.$refs.loginPart)[0].offsetTop);
-      console.log('mouseDown'+ e.clientX);
+     /* console.log('mouseDown'+ e.clientX);
       console.log('mouseDownElementOffsetLe'+$(this.$refs.loginPart)[0].offsetLeft);
-      console.log('mouseInBox' + this.mousePositionBoxX)
+      console.log('mouseInBox' + this.mousePositionBoxX)*/
       this.isDown = true;
     },
     mouseUpHandle(){
-      console.log('mouseUp');
+      // console.log('mouseUp');
       this.isDown = false;
     },
     mouseMoveHandle(e){
@@ -144,10 +145,10 @@ export default {
 
         $(this.$refs.loginPart)[0].style.left = distanceX + 'px';
         $(this.$refs.loginPart)[0].style.top = distanceY + 'px';
-        console.log('mouseMoveClientX'+e.clientX);
-        console.log('mouseMoveOffsetLeft' + distanceX);
+        /*console.log('mouseMoveClientX'+e.clientX);
+        console.log('mouseMoveOffsetLeft' + distanceX);*/
       }
-      console.log('mouseMove');
+      // console.log('mouseMove');
     }
   },
   watch:{

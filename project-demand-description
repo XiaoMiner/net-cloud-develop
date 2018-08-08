@@ -302,3 +302,7 @@ JQUERY取值：$("#text").data("name");
   + 这时需要后台配合：
     + header头部 Access-Control-Credentials: true;
     + Access-Control-Allow-Origin的值不能设置为'*', 因为会与axios.defaults.withCredentials = true;冲突, 所以需要配置指定地址。
+
+# vue 中使用md5算法
+  + npm install md5 --save
+  + 把md5 放在Vue实例的原型中, Vue.prototype.$md5 = md5; 以便于全局使用

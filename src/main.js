@@ -11,12 +11,17 @@ import axios from 'axios'
 import token from './js/set_refresh_token';
 // import cookie from './js/set_refresh_cookie';
 import $ from 'jquery'
+import md5 from 'js-md5'
 
 Vue.use(Vuex)
 
 // 把axios绑定到vue实例的原型中,以便于在全局使用, 在其他组件中使用。
 Vue.prototype.$axios = axios;
+// 把md5绑定到vue实例的原型中,以便于全局使用。
+Vue.prototype.$md5 = md5;
+
 Vue.config.productionTip = false
+
 window.onscroll = function() {
   let distanceTop = Math.ceil(document.documentElement.scrollTop);
   // console.log(distanceTop);
