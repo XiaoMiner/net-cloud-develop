@@ -91,7 +91,8 @@ export default {
       console.log('抛出一个错误')
     })
     // jquery中ajax请求。
-/*    $.ajax('http://39.106.219.106:8090/Terminal1/LN_AreaUserInfoManager.asmx/SelectUserInfoApi', {
+  /*  $.ajax({
+      url: 'http://39.106.219.106:8090/Terminal1/LN_AreaUserInfoManager.asmx/SelectUserInfoApi',
       type: 'post',
       data: {
         userId: '2638',
