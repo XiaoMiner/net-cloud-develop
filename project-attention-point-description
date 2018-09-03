@@ -134,23 +134,39 @@
     > 组件应用涉及到三大部分: 引入组件 调用组件 注册到父实例中。
     > 路由的应用: router-link 引入组件 配置路由 router-view。
     + NetCloudMusicIndex.vue是根组件
-         > 当组件含有路由链接("/findMusic"、"/myMusic"、"/friend"、"/downloadClient")
+         > 当组件含有路由链接("/findMusic"、"/myMusic"、"/friend"、"/musician"、"/downloadClient")
          + /IndexComponents/IndexHeader.vue
-         > IndexHeader中链接对应的组件。(IndexContentFindMusic、IndexContentMyMusic、IndexContentFriend、IndexContentDownloadClient)
-         (   > IndexContentFindMusic组件中含有链接(  "/recommend"、"/rankingList"、"/songSheet"、"/anchorsPlatform"、"/singer"、"/newPlate")
-         + /IndexComponents/indexContent/IndexContentFindMusic.vue
-                      + /FindMusic/
-                        + FindMusicRecommend.vue
-                        + FindMusicRankingList.vue
-                        + FindMusicSongSheet.vue
-                        + FindMusicAnchorsPlatform.vue
-                        + FindMusicSinger.vue
-                        + FindMusicNewPlate.vue
-         > FindMusic.vue是IndexContentFindMusic中链接的输出位置。
-         + FindMusic.vue)
-         + /IndexComponents/indexContent/IndexContentMyMusic.vue
-         + /IndexComponents/indexContent/IndexContentFriend.vue
-         + /IndexComponents/indexContent/IndexContentDownloadClient.vue
-         > IndexContent.vue组件是IndexHeader中链接到的组件输出位置
-         + /IndexComponents/IndexContent.vue
+           > IndexHeader中链接对应的组件。(IndexContentFindMusic、IndexContentMyMusic、IndexContentFriend、IndexContentDownloadClient)
+              // 发现音乐
+              IndexContentFindMusic组件中含有链接(  "/recommend"、"/rankingList"、"/songSheet"、"/anchorsPlatform"、"/singer"、"/newPlate")
+                + /IndexComponents/indexContent/IndexContentFindMusic.vue
+                            + /FindMusic/
+                              // 发现音乐 - 子模块-推荐
+                              + FindMusicRecommend.vue
+                              // 发现音乐 - 子模块-排行榜
+                              + FindMusicRankingList.vue
+                              // 发现音乐 - 子模块-歌单
+                              + FindMusicSongSheet.vue
+                              // 发现音乐 - 子模块-主播平台
+                              + FindMusicAnchorsPlatform.vue
+                              // 发现音乐 - 子模块-歌手
+                              + FindMusicSinger.vue
+                              // 新碟上架
+                              + FindMusicNewPlate.vue
+               // 发现音乐-子模块组件的输出位置。
+               > FindMusic.vue
+                  + FindMusic.vue
+             // 我的音乐
+             + /IndexComponents/indexContent/IndexContentMyMusic.vue
+             // 朋友
+             + /IndexComponents/indexContent/IndexContentFriend.vue
+             // 下载客户端
+             + /IndexComponents/indexContent/IndexContentDownloadClient.vue
 
+             // 发现音乐、我的音乐、朋友、下载客户端组件的组件输出。
+             > IndexContent.vue组件是IndexHeader中链接到的组件输出位置
+             + /IndexComponents/IndexContent.vue
+
+             //音乐人
+             // 输出位置在router/index.js中进行关联。
+             + /AppOutputComponent/AppOutputMusician.vue

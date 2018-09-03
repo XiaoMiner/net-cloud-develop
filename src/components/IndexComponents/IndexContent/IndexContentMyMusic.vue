@@ -2,7 +2,7 @@
 <div id="my-music">
   <div class="my-music-top"></div>
   <div class="my-music-content">
-    <div class="my-music-content-wrap clearFix">
+    <!--<div class="my-music-content-wrap clearFix">
       <ul class="content-wrap-ul">
         <li class="content-wrap-list-one">
           <div class="content-wrap-list-description">用户ID</div>
@@ -17,7 +17,7 @@
           <div class="content-wrap-list-description">{{singleInfo.userProjCount}}</div>
         </li>
       </ul>
-    </div>
+    </div>-->
   </div>
 
 </div>
@@ -34,8 +34,8 @@ export default {
     }
   },
   created(){
-    var _this = this;
-    console.dir(_this)
+   /* var _this = this;
+    console.dir(_this)*/
     /*var params = new URLSearchParams();
     params.append('userId', '2638')
     params.append('userName', '')
@@ -64,7 +64,7 @@ export default {
     }).catch(function(){
       console.log('抛出一个错误')
     })*/
-    _this.$axios({
+    /*_this.$axios({
       url: 'http://39.106.219.106:8090/Terminal2/LN_AreaUserInfoManager.asmx/SelectUserInfoApi',
       method: 'POST',
       headers: {
@@ -89,7 +89,7 @@ export default {
       }
     }).catch(function(){
       console.log('抛出一个错误')
-    })
+    })*/
     // jquery中ajax请求。
   /*  $.ajax({
       url: 'http://39.106.219.106:8090/Terminal1/LN_AreaUserInfoManager.asmx/SelectUserInfoApi',
